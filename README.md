@@ -26,4 +26,3 @@ Node packages: ascii-table, cheerio, discord-buttons, discord.js, puppeteer, col
 2. Make sure node.js is installed then run `npm i`
 3. Configure the bot in `botconfig/config.json`
 4. Run `npm start`
-5. Profit!
