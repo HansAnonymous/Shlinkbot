@@ -1,0 +1,8 @@
+{
+  "token": "YOUR_BOT_TOKEN",
+  "prefix": ".",
+  "defaultCommandCooldown" : 1,
+  "shlinkedin_key": "YOUR_SHLINKEDIN_KEY",
+  "status_activity": ["WATCHING", "LISTENING", "PLAYING"],
+  "status_text": ["You", "your conversations", "God"]
+}
