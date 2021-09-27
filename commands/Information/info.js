@@ -1,20 +1,26 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
 const ee = require("../../botconfig/embed.json");
-const { duration } = require("../../handlers/functions")
+const { duration, randomQuip } = require("../../handlers/functions")
+
 module.exports = {
-    name: "uptime",
+    name: "info",
     category: "Information",
-    aliases: [""],
-    cooldown: 10,
-    usage: "uptime",
-    description: "Returns the duration on how long the Bot is online",
+    aliases: ["about"],
+    cooldown: 5,
+    usage: "info",
+    description: "Shows information about the bot.",
     run: async (client, message, args, user, text, prefix) => {
     try{
       message.reply(randomQuip(), new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`:white_check_mark: **${client.user.username}** has been online for:\n ${duration(client.uptime)}`)
+        .setTitle(`Shlinkbot for ShlinkedIn`)
+        .setURL(`https://github.com/HansAnonymous/ShlinkBot`)
+        .setThumbnail(client.user.avatarURL)
+        .addField(`Information`, `[**Invite**](https://discord.com/api/oauth2/authorize?client_id=889284352595337236&permissions=8&scope=bot)\nVersion: ${config.latest_version}`, false)
+        .addField(`Author`, `💻Created by <@168216897450541056>\n[☕ Buy me a coffee](https://www.buymeacoffee.com/hansanonymous)`)
+        .addField(`Uptime`, `${duration(client.uptime)}`, true),
       );
     } catch (e) {
         console.log(String(e.stack).bgRed)

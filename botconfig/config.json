@@ -1,8 +1,8 @@
 {
-  "token": "YOUR_BOT_TOKEN",
-  "prefix": ".",
-  "defaultCommandCooldown" : 1,
-  "shlinkedin_key": "YOUR_SHLINKEDIN_KEY",
+  "prefix": ",",
+  "defaultCommandCooldown" : 0,
   "status_activity": ["WATCHING", "LISTENING", "PLAYING"],
-  "status_text": ["You", "your conversations", "God"]
+  "status_text": ["You", "your conversations", "God"],
+  "latest_version": "Update 4",
+  "quips": ["Shlinkfiles Retrieved!", "I'm not your assistant! But here.", "Don't you have anything better to do?", "Shlinkfiles not burning! Phew!"]
 }

@@ -1,14 +1,15 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
+const tokens = require("../../botconfig/tokens.json");
 const ee = require("../../botconfig/embed.json");
-//const { functionName } = require("../../handlers/functions")
+const { randomQuip } = require("../../handlers/functions")
 
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
 const cookies = [{
     'name': '_shlinkedin_key',
-    'value': config.shlinkedin_key
+    'value': tokens.shlinkedin_key
 }]
 
 const mapping = {
@@ -90,6 +91,7 @@ module.exports = {
                     embed.setColor(ee.color);
                     embed.setFooter(ee.footertext, ee.footericon);
                     embed.setTitle('Your thought leaders of today');
+                    embed.setURL(url)
                     embed.setDescription(slug);
                     
                     const html = await page.content();
@@ -106,7 +108,7 @@ module.exports = {
                         embed.addField(category, profile.category, true)
                     }
 
-                    message.reply('Randomized phrase goes here', new MessageEmbed()
+                    message.reply(randomQuip(), new MessageEmbed()
                         .setColor(ee.color)
                         .setFooter(ee.footertext, ee.footericon)
                         .setTitle('Retrieving Shlinkfiles...')

@@ -1,17 +1,18 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("../../botconfig/config.json");
+const tokens = require("../../botconfig/tokens.json");
 const ee = require("../../botconfig/embed.json");
 const { MessageButton } = require('discord-buttons');
+const { randomQuip } = require("../../handlers/functions")
 
 //const browser = require("../../handlers/browser.js")
-//const { functionName } = require("../../handlers/functions")
 
 const cheerio = require('cheerio');
 const puppeteer = require('puppeteer');
 
 const cookies = [{
     'name': '_shlinkedin_key',
-    'value': config.shlinkedin_key
+    'value': tokens.shlinkedin_key
 }]
 
 module.exports = {
@@ -69,7 +70,7 @@ module.exports = {
                         .setLabel('Endorse them!')
                         .setURL(`https://www.shlinkedin.com/sh/${username}/endorsements/new`);
 
-                    message.reply('Here\'s your requested profile:', new MessageEmbed()
+                    message.reply(randomQuip(), new MessageEmbed()
                         .setColor(ee.color)
                         .setFooter(ee.footertext, ee.footericon)
                         .setTitle(`Retrieving Shlinkfiles...`)

@@ -1,3 +1,5 @@
+const config = require('../botconfig/config.json');
+
 module.exports = {
   //get a member lol
   getMember: function(message, toFind = "") {
@@ -106,6 +108,13 @@ module.exports = {
       return array;
     }catch (e){
       console.log(String(e.stack).bgRed)
+    }
+  },
+  randomQuip: () => {
+    try {
+      return config.quips[Math.floor(Math.random()*config.quips.length)];
+    } catch(e){
+      console.log(String(e.stack).bgRed);
     }
   }
 }
