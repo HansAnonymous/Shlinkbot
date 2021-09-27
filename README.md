@@ -16,6 +16,7 @@ Default prefix: `.`
 ## Requirements
 
 Node.js
+
 Node packages: ascii-table, cheerio, discord-buttons, discord.js, puppeteer, colors
 
 ## Running locally
