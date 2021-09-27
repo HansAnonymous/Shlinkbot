@@ -1,14 +1,14 @@
 {
-  "name": "discord-js-handler-template",
-  "version": "1.0.0",
-  "description": "Discord.js Command and Event Handler Template with example Command usages!",
+  "name": "Shlinkbot",
+  "version": "4.0.0",
+  "description": "Discord bot for ShlinkedIn!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "Tomato#6966 (author of this template)",
-  "license": "ISC",
+  "author": "HansAnonymous#1007",
+  "license": "GNU GPL v3.0",
   "dependencies": {
     "ascii-table": "0.0.9",
     "cheerio": "^1.0.0-rc.10",
@@ -16,9 +16,7 @@
     "constantinople": "^4.0.1",
     "discord-buttons": "^4.0.0",
     "discord.js": "^12.5.1",
-    "express": "^4.17.1",
     "http-errors": "^1.8.0",
-    "lorem-ipsum": "^2.0.3",
     "md5": "^2.3.0",
     "mersenne-twister": "^1.1.0",
     "morgan": "^1.10.0",
