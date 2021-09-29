@@ -4,24 +4,26 @@ const ee = require("../../botconfig/embed.json");
 const { duration, randomQuip } = require("../../handlers/functions")
 
 module.exports = {
-    name: "info",
+    name: "roadmap",
     category: "Information",
-    aliases: ["about"],
+    aliases: ["plans"],
     cooldown: 5,
-    usage: "info",
-    description: "Shows information about the bot.",
+    usage: "roadmap",
+    description: "Lists planned features for the bot.",
     run: async (client, message, args, user, text, prefix) => {
     try{
       message.reply(randomQuip(), new MessageEmbed()
         .setColor(ee.color)
         .setFooter(ee.footertext, ee.footericon)
-        .setTitle(`Shlinkbot for ShlinkedIn`)
-        .setURL(`https://github.com/HansAnonymous/ShlinkBot`)
-        .setThumbnail(client.user.avatarURL)
-        .addField(`Information`, `[**Invite**](https://discord.com/api/oauth2/authorize?client_id=889284352595337236&permissions=8&scope=bot)\nVersion: ${config.latest_version}`, false)
-        .addField(`Author`, `💻Created by <@168216897450541056>\n[☕ Buy me a coffee](https://www.buymeacoffee.com/hansanonymous)`)
-        .addField(`Uptime`, `${duration(client.uptime)}`, true)
-        .addField(`# Servers`, `In \`${client.guilds.cache.size}\` servers`)
+        .setTitle(`🛣 Shlinkbot Roadmap`)
+        .setURL(`https://github.com/HansAnonymous/ShlinkBot/README.md#roadmap`)
+        .addField('Feature #1', "Leaderboard Caching")
+        .addField('Feature #2', "Search by display name")
+        .addField('Feature #3', 'All time best posts?')
+        .addField('Secret Feature #1', "🤫")
+        .addField('Feature #4', "Quick commands")
+        .addField('Feature #5', "Add badges to profile command")
+
       );
     } catch (e) {
         console.log(String(e.stack).bgRed)

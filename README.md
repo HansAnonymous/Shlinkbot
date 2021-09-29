@@ -12,6 +12,7 @@ Default prefix: `.`
 * `.help` - Shows help menu
 * `.changelog [version]` - Shows bot's changelog
 * `.uptime` - How long the bot has been running
+* `.roadmap` - [Planned Features](https://github.com/HansAnonymous/ShlinkBot/README.md#readme)
 
 ## Requirements
 
@@ -26,3 +27,12 @@ Node packages: ascii-table, cheerio, discord-buttons, discord.js, puppeteer, col
 2. Make sure node.js is installed then run `npm i`
 3. Configure the bot in `botconfig/config.json`
 4. Run `npm start`
+
+## Roadmap
+
+1. Leaderboard Caching
+2. Search by display name
+3. All time best posts(?)
+4. Secret Feature #1
+5. Discord Quick Commands
+6. Add badges to profile command

@@ -5,3 +5,5 @@ ShlinkBot.code-workspace
 shlinkbot1.pdn
 shlinkbotdev1.pdn
 botconfig/tokens.json
+data/
+.vs/

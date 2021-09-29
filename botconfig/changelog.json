@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Update 5",
+        "description": [
+            "Caching for profiles! No, not cash. Not Shlinkpoints either.",
+            "```md",
+            "1. Cleaned up profile command!",
+            "2. Probably also made it messier adding #3",
+            "3. Added caching to user profiles for faster loading!",
+            "+  Caching is now configurable, default set to 24 hours",
+            "+  Customization commands not yet implemented.",
+            "4. Profile usernames are now shown in the profile command",
+            "5. Roadmap command",
+            "```"
+        ]
+    },{
+        "name": "Update 4",
+        "description": [
+            "Code is now open source!",
+            "```md",
+            "1. Cleaned up code.",
+            "2. Added info/about command.",
+            "3. Most commands now have a random quip as a response!",
+            "4. Config now hosts list of random quips.",
+            "5. Separated tokens and bot configurations.",
+            "```"
+        ]
+    },{
+        "name": "Update 3",
+        "description": [
+            "I finally decided to add some more features:",
+            "```md",
+            "1. Add Career progression to profile command.",
+            "2. Add 3 buttons to profile command to 'Send SP', 'Give Review', and 'Give Endorsement'.",
+            "3. Added changelog command because it's good practice and so people can see what's new (i guess).```"
+        ]
+    },{
+        "name": "Update 0.0.2",
+        "description": [
+            "```md",
+            "Quick bug fix to support externally hosted profile pictures. Darn you Jack Evangelizer!!!```"
+        ]
+    },{
+        "name": "Update 0.0.0.01",
+        "description": [
+            "Initial Release!",
+            "```md",
+            "1. Profile Command",
+            "2. Leaderboard Command",
+            "3. Jab/Ping Command",
+            "4. Help Command```"
+        ]
+    }
+]
