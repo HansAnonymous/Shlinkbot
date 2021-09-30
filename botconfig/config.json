@@ -3,7 +3,7 @@
   "defaultCommandCooldown" : 0,
   "status_activity": ["WATCHING", "LISTENING", "PLAYING"],
   "status_text": ["You", "your conversations", "God"],
-  "latest_version": "Update 6",
+  "latest_version": "Update 7",
   "quips": ["Shlinkfiles Retrieved!", "I'm not your assistant! But here.", "Don't you have anything better to do?", "Shlinkfiles not burning! Phew!"],
   "cacheTime": 24
 }

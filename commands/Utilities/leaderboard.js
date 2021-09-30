@@ -17,7 +17,7 @@ const mapping = {
     ads : ["ads", "advertisements", "advertisements", "ad", "adds", "add"],
     claps : ["claps", "clap"],
     hottest : ["hottest", "hot"],
-    pr : ["pr", "posts", "reactions", "postreactions", "post reactions"],
+    pr : ["pr", "posts", "reaction", "reactions", "postreactions", "post reactions"],
     shlinks : ["shlinks", "shlink", "shlinked", "sh"],
     wealth : ["wealth", "rich", "richest", "money"]
 };
@@ -33,11 +33,14 @@ module.exports = {
     description: "Get the thought leaders of our generation.",
     category: "Utilities",
     cooldown: 5,
-    usage: "leaderboard <category>",
+    usage: "leaderboard <category> [forceUpdate: false|true]",
     run: async (client, message, args, user, text, prefix) => {
         try{
             if(args[0]) {
+                let forceUpdate = (args[1] == "true");
                 const arg = args[0].toLowerCase();
+
+                leaderboard = { profiles: [], lastUpdate: 0 };
                 let url;
                 let category;
                 let categoryShort;
@@ -69,7 +72,7 @@ module.exports = {
                 } else if(mapping.wealth.includes(arg)) {
                     url = 'https://shlinkedin.com/leaders?curr_category=Wealth';
                     category = 'Net Worth'
-                    categoryShort = 'topShlinks'
+                    categoryShort = 'topWealth'
                     slug = 'Total number of ShlinkPoints'
                 } else {
                     return message.reply('❌ Unknown category!', new MessageEmbed()
@@ -85,12 +88,7 @@ module.exports = {
                     );
                 }
                 
-                let newSearch;
-                if(fs.existsSync(`./data/${categoryShort}.json`)) {
-                    newSearch = false;
-                } else {
-                    newSearch = true;
-                }
+                let newSearch = (fs.existsSync(`./data/${categoryShort}.json`)) ? false : true;
 
                 let needsUpdate;
                 if(!newSearch) {
@@ -99,7 +97,7 @@ module.exports = {
                     needsUpdate = ((Date.now() - leaderboard.lastUpdate) > (config.cacheTime * 60 * 60 * 1000)) ? true : false;
                 }
 
-                if(newSearch || needsUpdate) {
+                if(newSearch || needsUpdate || forceUpdate) {
                     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox']})
                     const page = await browser.newPage();
 
@@ -122,7 +120,8 @@ module.exports = {
                             let profile = {
                                 rank: $(`table > tbody > tr:nth-child(${i}) > td:nth-child(1) > div > span`).text().replace('\n', '').replace(/\s\s+/g, ''),
                                 name: $(`table > tbody > tr:nth-child(${i}) > td:nth-child(2) > div > div.ml-4 > a > div.text-sm.font-medium.text-gray-900`).text().replace('\n', '').replace(/\s\s+/g, ''),
-                                category: $(`table > tbody > tr:nth-child(${i}) > td.px-6.py-4.whitespace-nowrap.text-sm.text-blue-600.font-bold.text-center`).text().replace('\n', '').replace(/\s\s+/g, '')
+                                url: 'https://shlinkedin.com/' + $(`table > tbody > tr:nth-child(${i}) > td:nth-child(2) > div > div.ml-4 > a`).attr('href'),
+                                category: $(`table > tbody > tr:nth-child(${i}) > td.px-6.py-4.whitespace-nowrap.text-sm.text-blue-600.font-bold.text-center`).text().replace('\n', '').replace(/\s\s+/g, '').replace('\n','')
                             }
                             leaderboard.profiles.push(profile);
                         }
@@ -132,16 +131,17 @@ module.exports = {
                         fs.writeFileSync(`./data/${categoryShort}.json`, data, 'utf8');
                     }
                 }
-
+                const timesince = Date.now() - leaderboard.lastUpdate;
+                const timetext = (timesince < 60 * 1000) ? "\nLast updated: Now" : "\nLast updated: " + Math.floor(timesince/(60 * 60 * 1000)) + " hours, " + Math.floor((timesince/(60 * 1000))%60) + " minutes ago";
                 const embed = new MessageEmbed();
                 embed.setColor(ee.color);
-                embed.setFooter(ee.footertext, ee.footericon);
+                embed.setFooter(ee.footertext + timetext, ee.footericon);
                 embed.setTitle('Your thought leaders of today');
                 embed.setURL(url)
                 embed.setDescription(slug);
                 for (let i = 0; i < 8; i++) {
                     embed.addField("Rank", leaderboard.profiles[i].rank, true);
-                    embed.addField("Profile", leaderboard.profiles[i].name, true);
+                    embed.addField("Profile", `[${leaderboard.profiles[i].name}](${leaderboard.profiles[i].url})`, true);
                     embed.addField(category, leaderboard.profiles[i].category, true)
                 }
 

@@ -1,8 +1,23 @@
 [
     {
+        "name": "Update 7",
+        "description": [
+            "Updates on a roll!",
+            "```md",
+            "1. Previous update wasn't fully working, whoops!",
+            "2. Leaderboard caching fixed!",
+            "3. Added optional argument to force update leaderboards and profiles!",
+            "+  Works like this: .profile <username> [update: false|true]",
+            "+  If you don't understand that formatting, then here's an example:",
+            "+  \".p hans true\" (it defaults to false when you don't specify)",
+            "4. Added last updated text to show when the profile or leaderboard was last updated!",
+            "5. Added links to each profile on the leaderboard!",
+            "```"
+        ]
+    },{
         "name": "Update 6",
         "description": [
-            "Caching for profiles! No, not cash. Not Shlinkpoints either.",
+            "Caching for leaderboards!",
             "```md",
             "1. Added caching to leaderboard for faster loading!",
             "```"

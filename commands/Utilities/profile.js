@@ -38,18 +38,14 @@ module.exports = {
     description: "Get the profile of a ShlinkedIn user.",
     category: "Utilities",
     cooldown: 5,
-    usage: "profile <username>",
+    usage: "profile <username> [forceUpdate: false|true]",
     run: async (client, message, args, user, text, prefix) => {
         try{
             if(args[0]) {
-                let newSearch = false;
+                let forceUpdate = (args[1] == "true");
                 profile.username = args[0].toLowerCase();
-
-                if(fs.existsSync(`./data/${profile.username}.json`)) {
-                    newSearch = false;
-                } else {
-                    newSearch = true;
-                }
+                
+                let newSearch = (!fs.existsSync(`./data/${profile.username}.json`));
 
                 let needsUpdate = true;
                 if(!newSearch) {
@@ -58,7 +54,7 @@ module.exports = {
                     needsUpdate = ((Date.now() - profile.lastUpdate) > (config.cacheTime * 60 * 60 * 1000)) ? true : false;
                 }
 
-                if(newSearch || needsUpdate) {
+                if(newSearch || needsUpdate || forceUpdate) {
                     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox']})
                     const page = await browser.newPage();
 
@@ -109,6 +105,9 @@ module.exports = {
                     .setLabel('Endorse them!')
                     .setURL(`https://www.shlinkedin.com/sh/${profile.username}/endorsements/new`);
 
+                const timesince = Date.now() - profile.lastUpdate;
+                const timetext = (timesince < 60 * 1000) ? "\nLast updated: Now" : "\nLast updated: " + Math.floor(timesince/(60 * 60 * 1000)) + " hours, " + Math.floor((timesince/(60 * 1000))%60) + " minutes ago";
+                
                 return message.reply(randomQuip(), new MessageEmbed()
                     .setColor(ee.color)
                     .setFooter(ee.footertext, ee.footericon)
@@ -117,7 +116,7 @@ module.exports = {
                     msg.edit(new MessageEmbed()
                     .setColor(ee.color)
                     .setThumbnail(profile.thumbnail)
-                    .setFooter(profile.created, ee.footericon)
+                    .setFooter(profile.created + timetext, ee.footericon)
                     .setTitle(profile.displayName)
                     .setURL(profile.url)
                     .setAuthor(profile.tagline)
