@@ -12,7 +12,7 @@ Default prefix: `.`
 * `.help` - Shows help menu
 * `.changelog [version]` - Shows bot's changelog
 * `.uptime` - How long the bot has been running
-* `.roadmap` - [Planned Features](https://github.com/HansAnonymous/ShlinkBot/README.md#readme)
+* `.roadmap` - [Planned Features](https://github.com/HansAnonymous/ShlinkBot/README.md#roadmap)
 
 ## Requirements
 
@@ -30,9 +30,9 @@ Node packages: ascii-table, cheerio, discord-buttons, discord.js, puppeteer, col
 
 ## Roadmap
 
-1. Leaderboard Caching
-2. Search by display name
-3. All time best posts(?)
-4. Secret Feature #1
-5. Discord Quick Commands
-6. Add badges to profile command
+1. Search by display name
+2. All time best posts(?)
+3. Secret Feature #1
+4. Discord Quick Commands
+5. Add badges to profile command
+6. Customization commands (prefix, cooldowns, caching)

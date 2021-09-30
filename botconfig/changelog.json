@@ -1,5 +1,13 @@
 [
     {
+        "name": "Update 6",
+        "description": [
+            "Caching for profiles! No, not cash. Not Shlinkpoints either.",
+            "```md",
+            "1. Added caching to leaderboard for faster loading!",
+            "```"
+        ]
+    },{
         "name": "Update 5",
         "description": [
             "Caching for profiles! No, not cash. Not Shlinkpoints either.",

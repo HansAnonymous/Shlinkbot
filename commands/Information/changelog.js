@@ -27,7 +27,6 @@ module.exports = {
                     embed.setTitle(`📜 Shlinkbot Changelog`);
                     embed.setAuthor(`${changelog[normQuery].name + latest}`);
                     embed.setDescription(`${changelog[normQuery].description.join('\n')}`)
-                    //embed.addField(`${changelog[normQuery].name + latest}`, `${changelog[normQuery].description}`)
                 } else {
                     embed.setColor(ee.wrongcolor);
                     embed.setTitle(`❌ Invalid changelog index!`);

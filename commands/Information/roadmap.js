@@ -17,12 +17,12 @@ module.exports = {
         .setFooter(ee.footertext, ee.footericon)
         .setTitle(`🛣 Shlinkbot Roadmap`)
         .setURL(`https://github.com/HansAnonymous/ShlinkBot/README.md#roadmap`)
-        .addField('Feature #1', "Leaderboard Caching")
-        .addField('Feature #2', "Search by display name")
-        .addField('Feature #3', 'All time best posts?')
+        .addField('Feature #1', "Search by display name")
+        .addField('Feature #2', 'All time best posts?')
         .addField('Secret Feature #1', "🤫")
-        .addField('Feature #4', "Quick commands")
-        .addField('Feature #5', "Add badges to profile command")
+        .addField('Feature #3', "Quick commands")
+        .addField('Feature #4', "Add badges to profile command")
+        .addField('Feature #5', 'Customization commands (prefix, cooldowns, caching)')
 
       );
     } catch (e) {
