@@ -1,5 +1,15 @@
 [
     {
+        "name": "Update 8",
+        "description": [
+            "Whoo! Bugs be gone!",
+            "```md",
+            "1. Fixed force updating info in leaderboards!",
+            "2. Timestamp for last updated now updated with dynamic times",
+            "```"
+        ]
+
+    },{
         "name": "Update 7",
         "description": [
             "Updates on a roll!",

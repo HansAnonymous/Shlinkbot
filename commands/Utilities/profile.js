@@ -105,8 +105,9 @@ module.exports = {
                     .setLabel('Endorse them!')
                     .setURL(`https://www.shlinkedin.com/sh/${profile.username}/endorsements/new`);
 
-                const timesince = Date.now() - profile.lastUpdate;
-                const timetext = (timesince < 60 * 1000) ? "\nLast updated: Now" : "\nLast updated: " + Math.floor(timesince/(60 * 60 * 1000)) + " hours, " + Math.floor((timesince/(60 * 1000))%60) + " minutes ago";
+                //const timesince = Date.now() - profile.lastUpdate;
+                //const timetext = (timesince < 60 * 1000) ? "\nLast updated: Now" : "\nLast updated: " + Math.floor(timesince/(60 * 60 * 1000)) + " hours, " + Math.floor((timesince/(60 * 1000))%60) + " minutes ago";
+                //const timetext = ` <t:${profile.lastUpdate}:R>`
                 
                 return message.reply(randomQuip(), new MessageEmbed()
                     .setColor(ee.color)
@@ -116,11 +117,12 @@ module.exports = {
                     msg.edit(new MessageEmbed()
                     .setColor(ee.color)
                     .setThumbnail(profile.thumbnail)
-                    .setFooter(profile.created + timetext, ee.footericon)
+                    .setFooter(profile.created, ee.footericon)
                     .setTitle(profile.displayName)
                     .setURL(profile.url)
                     .setAuthor(profile.tagline)
                     .setDescription(profile.description)
+                    .setTimestamp(profile.lastUpdate)
                     .addField('Username', profile.username, true)
                     .addField('Life Grade', profile.grade, true)
                     .addField('Net Worth', profile.networth, true)

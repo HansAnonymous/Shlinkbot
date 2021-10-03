@@ -98,6 +98,10 @@ module.exports = {
                 }
 
                 if(newSearch || needsUpdate || forceUpdate) {
+                    leaderboard = {
+                        profiles: [],
+                        lastUpdate: 0
+                    };
                     const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox']})
                     const page = await browser.newPage();
 
@@ -126,19 +130,21 @@ module.exports = {
                             leaderboard.profiles.push(profile);
                         }
                         leaderboard.lastUpdate = Date.now();
-
+                        fs.unlinkSync(`data/${categoryShort}.json`);
                         const data = JSON.stringify(leaderboard, null, 4);
                         fs.writeFileSync(`./data/${categoryShort}.json`, data, 'utf8');
                     }
                 }
-                const timesince = Date.now() - leaderboard.lastUpdate;
-                const timetext = (timesince < 60 * 1000) ? "\nLast updated: Now" : "\nLast updated: " + Math.floor(timesince/(60 * 60 * 1000)) + " hours, " + Math.floor((timesince/(60 * 1000))%60) + " minutes ago";
+                //const timesince = Date.now() - leaderboard.lastUpdate;
+                //const timetext = (timesince < 60 * 1000) ? "\nLast updated: Now" : "\nLast updated: " + Math.floor(timesince/(60 * 60 * 1000)) + " hours, " + Math.floor((timesince/(60 * 1000))%60) + " minutes ago";
+                //const timetext = ` <t:${leaderboard.lastUpdate}:R>`
                 const embed = new MessageEmbed();
                 embed.setColor(ee.color);
-                embed.setFooter(ee.footertext + timetext, ee.footericon);
+                embed.setFooter(ee.footertext, ee.footericon);
                 embed.setTitle('Your thought leaders of today');
                 embed.setURL(url)
                 embed.setDescription(slug);
+                embed.setTimestamp(leaderboard.lastUpdate);
                 for (let i = 0; i < 8; i++) {
                     embed.addField("Rank", leaderboard.profiles[i].rank, true);
                     embed.addField("Profile", `[${leaderboard.profiles[i].name}](${leaderboard.profiles[i].url})`, true);
