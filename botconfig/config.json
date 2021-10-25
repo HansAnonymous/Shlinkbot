@@ -3,7 +3,7 @@
   "defaultCommandCooldown" : 0,
   "status_activity": ["WATCHING", "LISTENING", "PLAYING"],
   "status_text": ["You", "your conversations", "God"],
-  "latest_version": "Update 8",
-  "quips": ["Shlinkfiles Retrieved!", "I'm not your assistant! But here.", "Don't you have anything better to do?", "Shlinkfiles not burning! Phew!"],
+  "latest_version": "Update 9",
+  "quips": ["Shlinkfiles Retrieved!", "I'm not your assistant! But here.", "Don't you have anything better to do?", "Shlinkfiles not burning! Phew!", "Who put you up to this?", "Why is it sticky?", "Why does it smell like rotten eggs?", "The truth is, your boss might be lying to you", "Transparency is a double-edged glass sword", "👏Clapping through life", "Generating ShlinkPoints...", "Begging for ShlinkedIn Premium", "Requesting your credit card, expiry date, and the funny 3-digits on the back", "Fibbing the numbers...", "That was forged I swear.", "God? GOD? Is that you? Oh, you're not real. Where's Sam?", "All praise lord Charlie", "Cuckoo! Cuckoo!", "Burning fossil fuels to power myself...", "Found these under the section with cobwebs..."],
   "cacheTime": 24
 }

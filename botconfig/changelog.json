@@ -1,5 +1,18 @@
 [
     {
+        "name": "Update 9",
+        "description": [
+            "Lmao the ShlinkedIn Premium Update broke the bot.",
+            "I took advantage of this time to add some features to the profile command",
+            "```md",
+            "1. Fixed Shlinkbot crashing on reading profile pages with different layouts (aka premium)",
+            "2. profile command now displays profile badges: premium, moderator, verified",
+            "3. profile command now displays soundtracks if use is premium",
+            "4. Added more quips"
+            "```"
+        ]
+    },
+    {
         "name": "Update 8",
         "description": [
             "Whoo! Bugs be gone!",
