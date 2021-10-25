@@ -8,7 +8,7 @@
             "1. Fixed Shlinkbot crashing on reading profile pages with different layouts (aka premium)",
             "2. profile command now displays profile badges: premium, moderator, verified",
             "3. profile command now displays soundtracks if use is premium",
-            "4. Added more quips"
+            "4. Added more quips",
             "```"
         ]
     },
